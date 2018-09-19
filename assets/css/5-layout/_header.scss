@@ -1,0 +1,108 @@
+nav {
+  &.scrolled {
+    background-color: rgba($bg-gray, 0.7) !important;
+    transition: background-color 200ms linear;
+  }
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  position: fixed !important;
+
+  a {
+    color: #fff;
+    transition: 0.3s;
+    &.active, &:hover {color: $orange;}
+  }
+
+  .navbar-brand {
+    padding: 2.2rem 0;
+    img {
+      height: 2.1rem;
+    }
+  }
+
+  .navbar-toggler {
+    outline: none;
+
+    $animation-time: 150ms;
+
+    @mixin normal() {
+      transform-origin: center;
+      transition: 150ms;
+      .navbar-toggler-icon-line, &:after, &:before {
+        content: '';
+        background-color: #fff;
+        display: block;
+        width: 20px;
+        height: 2px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-radius: 200px;
+        transition: $animation-time;
+      }
+      &:before{
+        margin-top: 2px;
+        transition: $animation-time;
+      }
+      &:after{
+        margin-bottom: 2px;
+        transition: $animation-time;
+      }
+    }
+    @mixin expanded() {
+      transform: rotate(45deg);
+      &:before {
+        transform: translateY(5px) rotate(180deg);
+      }
+      .navbar-toggler-icon-line {
+        transform: rotate(90deg) translateX(-2px);
+      }
+      &:after {
+        opacity: 0;
+      }
+    }
+    .navbar-toggler-icon {
+        @include normal();
+    }
+    &[aria-expanded=true] .navbar-toggler-icon {
+      @include expanded();
+    }
+  }
+  .navbar-toggler-icon {
+    position: relative;
+    height: 20px;
+    width: 20px;
+  }
+
+  .collapse, .collapsing {
+    justify-content: flex-end;
+    @include media-breakpoint-down(md) {
+      &:not(.collapsing) {
+        height: calc(100vh - 80px);
+      }
+    }
+    .nav-sections {
+      @include media-breakpoint-down(md) {
+        padding-top: 2rem;
+      }
+    }
+  }
+  .nav-item {
+    padding: 0 1rem;
+
+    @include media-breakpoint-down(md) {
+      padding: 0.3rem 0;
+    }
+  }
+}
+/*
+.navbar-expand-lg > .container {
+  @include media-breakpoint-down(md) {
+    padding: 0 2rem;
+  }
+}
+*/

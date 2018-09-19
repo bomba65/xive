@@ -1,0 +1,104 @@
+/* Base Styles -------------------- */
+
+html {
+  font-size: 10px;
+}
+body {
+  color: $bg-gray;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  font-weight: normal;
+  background-color: $bg-gray;
+  text-rendering: optimizeLegibility;
+  font-family: 'Open Sans', sans-serif;
+  background-repeat: no-repeat;
+  background-image: url(../img/hex1.png);
+}
+
+section {
+  padding: 8rem 0;
+}
+
+
+h1 {
+  font-weight: 600;
+  font-size: 3.6rem;
+  @include media-breakpoint-down(sm) {
+    font-size: 2.4rem;
+  }
+}
+h2 {
+  font-weight: 600;
+  font-size: 3rem;
+  @include media-breakpoint-down(sm) {
+    font-size: 2.4rem;
+  }
+
+  &.bordered {
+    position: relative;
+    &:after, &:before {
+      content: '';
+      top: 50%;
+      width: 40px;
+      height: 5px;
+      border-radius: 5px;
+      position: absolute;
+      background-color: $orange;
+      transform: translate(-50%, -50%);
+    }
+    &:before {
+      left: calc(50% - 130px);
+    }
+    &:after {
+      left: calc(50% + 130px);
+    }
+  }
+}
+h3 {
+  font-weight: 600;
+  font-size: 2.4rem;
+}
+
+.clr-white {
+  color: #fff;
+}
+.clr-orange {
+  color: $orange;
+}
+.clr-light-gray {
+  color: $light-gray-text;
+}
+.clr-gray {
+  color: $bg-gray;
+}
+
+.fw-normal {
+  font-weight: normal;
+}
+.fw-semi-bold {
+  font-weight: 600;
+}
+.fw-bold {
+  font-weight: 700;
+}
+.fw-extra-bold {
+  font-weight: 800;
+}
+.fw-light {
+  font-weight: 300;
+}
+
+.fs-16 {
+  font-size: 1.6rem;
+}
+.fs-24 {
+  font-size: 2.4rem;
+}
+.fs-30 {
+  font-size: 3rem;
+}
+.fs-36 {
+  font-size: 3.6rem;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800');
